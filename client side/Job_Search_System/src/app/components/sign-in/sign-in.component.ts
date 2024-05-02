@@ -13,6 +13,9 @@ export class SignInComponent {
   constructor(private authService: AuthService, private router: Router) {
   }
 
+  userDetails: any = { username: null, password: null }
+
+
   async login(username: string, password: string) {
     const isLoggedIn = await this.authService.Login(username, password);
     if (isLoggedIn) {

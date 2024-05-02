@@ -9,7 +9,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" ngModel required pattern="^\S{8,}$" title="Password must be at least 8 characters long and cannot contain spaces"
         >
-        <!-- <small *ngIf="loginForm.submitted && loginForm.controls.password.value.length<=8" class="error">* לפחות 8 תווים יש להזין סיסמה</small> -->
+        <small *ngIf="loginForm.submitted && userDetails.username.value.length<=8" class="error">* לפחות 8 תווים יש להזין סיסמה</small>
       </div>
       <button [disabled]="loginForm.invalid" type="submit">Submit</button>
     </form>

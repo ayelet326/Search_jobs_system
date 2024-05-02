@@ -7,6 +7,7 @@ namespace JobSearch.Data
         Task<List<User>?> GetAllUsers();
         Task<bool> DeleteUser(User user);
         Task<User?> GetUserById(int id);
+        Task<User?> Login(string name, string password);
         Task<bool> AddUser(User newUser);
         Task<bool> UpdateUser(User user);
 

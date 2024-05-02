@@ -30,6 +30,12 @@ namespace JobSearch.Services
             return await _repository.GetUserById(id);
         }
 
+         //Login by name and password
+        public async Task<User?> Login(string name, string password)
+        {
+            return await _repository.Login( name, password);
+        }
+
         // Add a new user to the database
         public async Task<bool> Add(User? newUser)
         {
