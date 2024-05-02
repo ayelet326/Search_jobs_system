@@ -1,0 +1,42 @@
+div {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  
+    form {
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+  
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+  
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        &:disabled {
+          background-color: #b3b3b3;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }

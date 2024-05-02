@@ -1,6 +1,6 @@
 export interface User{
-    UserId:number
-    UserName:string
-    Password:string
+    userId:number
+    userName:string
+    password:string
     JobFieldId:number
 }
