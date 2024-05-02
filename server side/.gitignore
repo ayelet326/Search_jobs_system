@@ -1,0 +1,6 @@
+/obj
+/bin
+/properties
+appsettings.Development.json
+appsettings.json
+server side.csproj
