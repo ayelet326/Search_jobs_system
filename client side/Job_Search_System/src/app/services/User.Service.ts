@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, of, tap, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -9,29 +9,26 @@ import { Observable, tap } from 'rxjs';
 })
 export class UserService {
 
-    constructor(private http: HttpClient) {
-         this.GetUsers();
-    }
+    constructor(private http: HttpClient) {}
 
-    UserList: User[] = []
 
-    public GetUserList(): Observable<User[]> {
-        return this.GetUsers().pipe(
-            tap((res: any) => {
-                this.UserList = res; 
+    
+    GetUserByNameAndPassword(userName:string,userPassword:string): Observable<User | null> {
+        return this.http.get<User>(`https://localhost:7107/User/Login?name=${encodeURIComponent(userName)}&password=${encodeURIComponent(userPassword)}`)
+        .pipe(
+            catchError(error => {
+                if (error.status === 404) {
+                    return of(null);
+                }
+                return throwError(error);
             })
-        );
-    }
-    
-    GetUsers(): Observable<User[]> {
-        return this.http.get<User[]>('https://localhost:7107/User');
+        );;
     }
     
 
     
 
-    addUser(user: User) {
-        this.UserList.push(user)
+    AddUser(user: User) {
         this.http.post('https://localhost:7107/User', { body: user }).subscribe(res => { })
     }
 

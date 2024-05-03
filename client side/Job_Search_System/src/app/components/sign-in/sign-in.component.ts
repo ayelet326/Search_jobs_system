@@ -13,17 +13,15 @@ export class SignInComponent {
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  userDetails: any = { username: null, password: null }
-
-
-  async login(username: string, password: string) {
+  async login(username: string, password: string): Promise<void> {
     const isLoggedIn = await this.authService.Login(username, password);
     if (isLoggedIn) {
-        this.router.navigate(['/home']);
-    } else {
-        alert("user not found!");
+      this.router.navigate(['/home']);
     }
-}
+    else {
+      alert("User not found");
+    }
+  }
 
 
 }
