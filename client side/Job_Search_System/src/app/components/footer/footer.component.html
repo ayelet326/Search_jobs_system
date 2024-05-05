@@ -1,1 +1,73 @@
-<p>footer works!</p>
+<footer id="footerid" class="text-white text-center text-lg-start w-100">
+    <div class="container p-4" style="background-color:rgb(255, 255, 255); color: hwb(14 40% 42%);">
+        <div class="row mt-4">
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">ABOUT US---</h5>
+
+                <p>
+                    Our job search platform has been carefully designed to help people discover the most up-to-date and
+                    in-demand job opportunities in the market. We strive to connect job seekers with employment
+                    opportunities that match their skills and career aspirations. With a user-friendly interface and
+                    comprehensive job listings, we aim to make the job search process efficient and rewarding for every
+                    user. 
+                </p>
+
+
+                <div class="mt-4 p-3">
+                    <!-- Facebook -->
+                    <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
+                    <!-- Dribbble -->
+                    <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-dribbble"></i></a>
+                    <!-- Twitter -->
+                    <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+                    <!-- Google + -->
+                    <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-google-plus-g"></i></a>
+                    <!-- Linkedin -->
+                    <a type="button" class="btn btn-floating btn-light btn-lg"><i
+                            class="fab fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4" style="color: hwb(14 40% 42%);">CONTACT US</h5>
+
+                <ul class="fa-ul" style="margin-left: 1.65em; direction: ltr;">
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-envelope"></i></span><span
+                            class="ms-2">JobRepublik&#64;gmail.com</span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">0556724873</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4" style="color: hwb(14 40% 42%);">JOIN THE JOB-REPUBLIK FAMILY</h5>
+
+                <p>
+                    ...and be the first to read interesting water sports blogs and jobe news.
+                </p>
+
+                <div class="p-3" style="display: flex; align-items: center;">
+                    <div style="position: relative; display: flex; flex-grow: 1;">
+                        <input #emailInput type="email" placeholder="Enter your email"
+                            style="padding: 7px 20px; border: 1px solid #ccc; border-radius: 20px; flex-grow: 1;">
+                        <button (click)="JoinToNewsletter(emailInput.value)"
+                            style="color: #b92424;background-color: white; border: none; border-radius: 20px; padding: 0.3em; margin-left: -2.5em; margin-top: 1px;margin-bottom: 1px;">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color:hwb(14 40% 42%);">
+        --development by Ayelet & Noa--
+    </div>
+
+    <div class="text-lg-start " style="background-color:rgb(255, 255, 255); color: hwb(14 40% 42%);">
+        ©2024
+    </div>
+</footer>
