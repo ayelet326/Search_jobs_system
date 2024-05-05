@@ -112,6 +112,7 @@ namespace JobSearch.Services
             existingUser.Password = newUser.Password ?? existingUser.Password;
             existingUser.JobFieldId = newUser.JobFieldId ?? existingUser.JobFieldId;
             existingUser.CVsSentCount = newUser.CVsSentCount ?? existingUser.CVsSentCount;
+            existingUser.IdJobsCvsSent = newUser.IdJobsCvsSent ?? existingUser.IdJobsCvsSent;
         }
     }
 }
