@@ -4,4 +4,5 @@ export interface User{
     password:string
     jobFieldId:number
     cVsSentCount:number
+    idJobsCvsSent:number[]
 }
