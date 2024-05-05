@@ -19,10 +19,11 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/Auth.Service';
+import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
-import { UserService } from './services/User.Service';
+import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppliedJobsListComponentComponent } from './components/applied-jobs-list.component/applied-jobs-list.component.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     DeleteUserComponent,
     UpdateUserComponent,
     ShowUserComponent,
-    UserListComponent
+    UserListComponent,
+    AppliedJobsListComponentComponent
   ],
   imports: [
     HttpClientModule,
