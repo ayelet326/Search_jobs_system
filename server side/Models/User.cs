@@ -19,6 +19,6 @@ public class User
     [Required]
     public int? CVsSentCount{ get; set; } = 0;
     [Required]
-    public List<int>? IdJobsCvsSent{ get; set; }
+    public List<int>? IdJobsCvsSent{ get; set; }=new List<int>();
 
 }
