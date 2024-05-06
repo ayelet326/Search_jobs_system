@@ -1,0 +1,32 @@
+.user-info a img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.user-info a img:hover {
+    transform: scale(1.1);
+}
+.user-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #121111;
+    padding: 15px;
+    border-bottom: 2px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.nav-item {
+    margin: 0 50px ;
+    font-size: 1.5rem;
+    color: #b55554;
+}
+#CVs-count {
+    font-weight: bold;
+}
+#job-field,#CvsSent{
+    color: #f96f6c;
+    text-decoration: none;
+
+}

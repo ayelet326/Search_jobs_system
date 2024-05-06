@@ -1,20 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="'/login'">Logo</a>
+<nav id="header" class="navbar navbar-expand-lg navbar-light  user-info">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item ">
+                <i class="fas fa-user"></i>  {{ currentUser.userName || 'no connect' }}
+            </li>
+
+            <li class="nav-item">
+               job field: <a   id="job-field" (click)="onJobFieldLinkClick()">{{jobFieldName}}</a>
+            </li>
+
+            <li class="nav-item">
+                You sent <span id="CVs-count">{{ currentUser.cVsSentCount}}</span> CVs
+            </li>
+
+            <li class="nav-item">
+                <a id="CvsSent" [routerLink]="'/CvsSent'"> Your Submitted CVs</a>
+            </li>
+           
+        </ul>
+    </div>
+
+    <a class="navbar-brand" [routerLink]="'/login'"><img src="../../../favicon.ico" alt="icon"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <!-- <button class="nav-link" [routerLink]="'positions/'+getField()" >🎯 {{getField() }}</button> -->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">👌🏻 {{currentUser }} CVs Sents </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" >👤 {{currentUser?.userName||'no connect' }}</a>
-            </li>
-        </ul>
-    </div>
+   
 </nav>
