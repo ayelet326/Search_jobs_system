@@ -24,6 +24,7 @@ export class HeaderComponent  implements OnInit {
     this.CVsNumber = this.currentUser.cVsSentCount;
     this.userService.userUpdated.subscribe((updatedUser: User) => {
       this.CVsNumber = updatedUser.cVsSentCount;
+      this.currentUser = JSON.parse(localStorage.getItem("Current-user") || '{}');
     });
     this.getJobFieldDetails();
   }
