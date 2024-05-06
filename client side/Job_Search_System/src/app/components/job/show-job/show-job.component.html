@@ -1,1 +1,15 @@
-<p>show-job works!</p>
+<div class="job">
+    <h2>{{ job?.jobName }}</h2>
+    <p><strong>Job Field:</strong> {{ jobFieldName }}</p>
+    <p><strong>Area:</strong> {{ job?.area }}</p>
+    <div *ngIf="showDetails">
+        <p><strong>Hours Scope:</strong> {{ job?.houresScope }}</p>
+        <p><strong>Requirements:</strong> {{ job?.requirements?.join(', ') }}</p>
+        <p><strong>Home Working:</strong> {{ job?.homeWorking ? 'Yes' : 'No' }}</p>
+    </div>
+    <button (click)="toggleDetails()">
+        {{ showDetails ? 'Close Details' : 'Show Details' }}
+    </button>
+    <button (click)="SentCV(job?.jobId!)">Sent CV</button>
+
+</div>

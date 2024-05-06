@@ -1,0 +1,36 @@
+.job {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .job h2 {
+    margin-top: 0;
+  }
+  
+  .job button {
+    margin: 5px;
+    background-color: #dc2e2e;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .job button:hover {
+    background-color: #be2626;
+  }
+  
+  .job button:focus {
+    outline: none;
+  }
+  
+  .job button.show-details {
+    margin-top: 10px;
+  }
+  
+  .job-details {
+    margin-top: 10px;
+  }
