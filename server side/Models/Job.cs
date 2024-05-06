@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace JobSearch.Models;
 public class Job
 {
-    [Key]
+     [Key]
     public int JobId { get; set; }
     [Required]
     [MaxLength(50)]

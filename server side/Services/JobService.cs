@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace JobSearch.Services
 {
+   
     public class JobService : IJobService
     {
         private readonly IRepository _repository;
@@ -68,8 +69,8 @@ namespace JobSearch.Services
             }
             try
             {
-                ValidationService.IsValidJob(newJob);
                 UpdateJobProperties(existingJob, newJob);
+                ValidationService.IsValidJob(existingJob);
                 await _repository.UpdateJob(existingJob);
                 return true;
             }

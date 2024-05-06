@@ -8,7 +8,7 @@ namespace JobSearch.Controllers
     [Route("[controller]")]
     public class JobController : ControllerBase
     {
-        private readonly IJobService jobService;
+         private readonly IJobService jobService;
 
         public JobController(IJobService jobService)
         {
