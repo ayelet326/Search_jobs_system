@@ -23,7 +23,7 @@ import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AppliedJobsListComponentComponent } from './components/applied-jobs-list.component/applied-jobs-list.component.component';
+import { AppliedJobsListComponent } from './components/applied-jobs-list/applied-jobs-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { AppliedJobsListComponentComponent } from './components/applied-jobs-lis
     UpdateUserComponent,
     ShowUserComponent,
     UserListComponent,
-    AppliedJobsListComponentComponent
+    AppliedJobsListComponent
   ],
   imports: [
     HttpClientModule,

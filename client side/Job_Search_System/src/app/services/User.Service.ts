@@ -33,11 +33,11 @@ export class UserService {
 
     updateUser(user:User){
         this.http.put('https://localhost:7107/User', user).subscribe(res => { });
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("Current-user", JSON.stringify(user));
         this.userUpdated.next(user);
     }   
     addJob(idJob:number ){
-        this.user = JSON.parse(localStorage.getItem("user") || '{}');
+        this.user = JSON.parse(localStorage.getItem("Current-user") || '{}');
         this.user.cVsSentCount += 1;
         console.log(this.user.idJobsCvsSent);
         
