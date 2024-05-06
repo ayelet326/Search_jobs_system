@@ -35,4 +35,14 @@ export class JobService {
         this.jobList.push(job)
         return this.http.post(this.jobsUrl, job);
     }
+
+    public getJobByIdJobs(idJob: number): Promise<Job | undefined> {
+        return new Promise((resolve, reject) => {
+          this.getJobList().subscribe((jobs: Job[]) => {
+            const foundJob = jobs.find(job => job.jobId === idJob);
+            resolve(foundJob);           
+          });
+        });
+      }
+      
 }
