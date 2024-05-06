@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable, Observer } from 'rxjs';
-import { User } from '../models/User';
-import { Job } from '../models/Job';
+import { Job } from '../models/job';
+import { Observable, tap } from 'rxjs';
 
 
 @Injectable({
@@ -10,24 +9,30 @@ import { Job } from '../models/Job';
 })
 
 export class JobService {
-    constructor(private http: HttpClient) {
-        this.GetJobs();
+    private jobsUrl = 'https://localhost:7107/Job';
+    jobList: Job[] = []
+
+    constructor(private http: HttpClient) {}
+
+    public getJobList(): Observable<Job[]> {
+        if (this.jobList.length === 0) {
+            return this.getJobsFromServer();
+        } else {
+            return new Observable(observer => {
+                observer.next(this.jobList);
+                observer.complete();
+            });
+        }
     }
 
-    JobList: Job[] = []
-
-    public GetJobList() {
-        return this.JobList
+    getJobsFromServer(): Observable<Job[]> {
+        return this.http.get<Job[]>(this.jobsUrl).pipe(
+            tap(jobs => this.jobList = jobs)
+        );
     }
 
-    GetJobs() {
-        this.http.get('https://localhost:7231/Job').subscribe((res: any) => this.JobList = res)
+    addJob(job: Job): Observable<any> {
+        this.jobList.push(job)
+        return this.http.post(this.jobsUrl, job);
     }
-
-    addUser(job: Job) {
-        this.JobList.push(job)
-        this.http.post('https://localhost:7231/Job', { body: job }).subscribe(res => { })
-    }
-
-
 }
