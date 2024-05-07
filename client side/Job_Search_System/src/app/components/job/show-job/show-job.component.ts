@@ -26,8 +26,8 @@ export class ShowJobComponent implements OnInit {
   toggleDetails() {
     this.showDetails = !this.showDetails;
   }
-  SentCV(jobId:number  ):void {
-    this.userService.addJob(jobId);
-    alert("CV sent successfuly");
+  SentCV(jobId:number):void {
+    if (this.userService.addJob(jobId))
+      alert("CV sent successfuly");
   }
 }
