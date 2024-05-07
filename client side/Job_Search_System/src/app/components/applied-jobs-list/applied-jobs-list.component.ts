@@ -27,14 +27,17 @@ export class AppliedJobsListComponent  implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.currentUser=JSON.parse(localStorage.getItem("Current-user")??'{ }');
+    this.updateUser(this.currentUser);
+
     this.userService.userUpdated.subscribe((updatedUser: User) => {
       this.updateUser(updatedUser);
     });
   }
 
-  private updateUser(updatedUser: User): void {
+  private updateUser(updatedUser: User): void {    
     this.currentUser = updatedUser;
-    this.idJobsCvsSent = updatedUser.idJobsCvsSent || [];
+    this.idJobsCvsSent = this.currentUser.idJobsCvsSent || [];
     this.loadJobs();
   }
 
