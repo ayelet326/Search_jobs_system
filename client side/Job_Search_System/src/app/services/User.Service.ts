@@ -21,7 +21,7 @@ export class UserService {
                         return of(null);
                     }
                     else{
-                    return throwError(error);
+                        return throwError(error);
                     }
                 })
             );
@@ -31,17 +31,26 @@ export class UserService {
         this.http.post('https://localhost:7107/User', { body: user }).subscribe(res => { });
     }
 
-    updateUser(user:User){
+    updateUser(user: User) {
         this.http.put('https://localhost:7107/User', user).subscribe(res => { });
         localStorage.setItem("Current-user", JSON.stringify(user));
         this.userUpdated.next(user);
-    }   
-    addJob(idJob:number ){
+    }
+    addJob(idJob: number): boolean {
         console.log("in add job");
-        
+
         this.user = JSON.parse(localStorage.getItem("Current-user") || '{}');
-        this.user.cVsSentCount += 1;
-        this.user.idJobsCvsSent.push(idJob);
-        this.updateUser(this.user);
+        const ifExist = this.user.idJobsCvsSent.find(id => id === idJob);
+        if (ifExist) {
+            alert("You sent Cvs to this Job.")
+            return false;
+        }
+        else {
+            this.user.cVsSentCount += 1;
+            this.user.idJobsCvsSent.push(idJob);
+            this.updateUser(this.user);
+            return true;
+        }
+
     }
 }
