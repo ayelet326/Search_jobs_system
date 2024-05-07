@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
-import { JobField } from '../../models/jobField';
-import { JobFieldService } from '../../services/jobField.service';
-import { UserService } from '../../services/user.service';
+import { User } from '../../../models/user';
+import { JobField } from '../../../models/jobField';
+import { JobFieldService } from '../../../services/jobField.service';
+import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
-import { Job } from '../../models/job';
-import { JobService } from '../../services/job.service';
+import { Job } from '../../../models/job';
+import { JobService } from '../../../services/job.service';
 import { Observable } from 'rxjs';
 
 @Component({
