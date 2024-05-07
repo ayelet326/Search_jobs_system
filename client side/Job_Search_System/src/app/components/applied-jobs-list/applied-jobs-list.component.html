@@ -1,8 +1,7 @@
-<main class="container col-lg-4 col-md-12 mb-4 mb-md-0 ml-2 p-5 ">
-    <h2>Jobs I Applied To: </h2>
+<main class="container col-lg-6 col-md-12 mb-4 mb-md-0 ml-2 p-5 " style="align-items: center;">
+    <h2 id="title">Jobs I Applied To: </h2>
     <ul *ngIf="jobs && jobs.length > 0">
-        <!-- <li *ngFor="let job of jobs">{{ job.jobName }}</li> -->
-        <div *ngFor="let job of jobs">
+        <div *ngFor="let job of jobs" appJobCard >
             <h2>{{ job?.jobName }}</h2>
             <p><strong>Job Field:</strong> {{ getJobFieldName(job.jobFieldId)| async  }}</p>
             <p><strong>Area:</strong> {{ job?.area }}</p>
@@ -11,7 +10,8 @@
             <p><strong>Home Working:</strong> {{ job?.homeWorking ? 'Yes' : 'No' }}</p>
         </div>
     </ul>
-    <div *ngIf="!jobs || jobs.length === 0" class="container">Oops! Looks like you haven't submitted your resume yet. Why not take a look
+    <div *ngIf="!jobs || jobs.length === 0" class="container">
+        Oops! Looks like you haven't submitted your resume yet. Why not take a look
         at our available job listings?
     </div>
 </main>
