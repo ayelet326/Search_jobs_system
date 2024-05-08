@@ -3,9 +3,9 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
@@ -35,27 +35,37 @@ select {
 }
 
 button {
-    padding: 5px 10px; 
-    background-color: #fff; 
-    color: #333; 
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #333;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button[type="button"]:hover {
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
 }
 
 input[type="checkbox"] {
     margin-right: 5px;
 }
-button[type="submit"]{
-background-color: #56c15a;
-width: 80px;
-height: 40px;
+
+button[type="submit"] {
+    background-color: #56c15a;
+    width: 80px;
+    height: 40px;
+
+    &:disabled {
+        background-color: #b3b3b3;
+        cursor: not-allowed;
+    }
 }
 
-button[type="submit"]:hover{
+button[type="submit"]:hover {
     background-color: #45a049;
+}
+
+button[type="submit"]:disabled:hover {
+    background-color: #767676;
 }

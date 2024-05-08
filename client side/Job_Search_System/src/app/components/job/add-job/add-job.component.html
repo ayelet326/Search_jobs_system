@@ -1,34 +1,31 @@
 <body>
-    <div>
+    <div class="container">
         <h2>Add New Job</h2>
         <form (ngSubmit)="onSubmit()" #addJobForm="ngForm">
             <div>
                 <label for="jobName">Job Name:</label>
                 <input type="text" id="jobName" name="jobName" [(ngModel)]="newJob.jobName" required>
                 <div
-                    *ngIf="addJobForm.controls['jobName'].invalid && (addJobForm.controls['jobName'].dirty || addJobForm.controls['jobName'].touched)">
+                    *ngIf="addJobForm.controls['jobName']?.invalid && (addJobForm.controls['jobName'].dirty || addJobForm.controls['jobName'].touched)">
                     <span style="color: red;">Enter a job Name</span>
                 </div>
             </div>
             <div>
-                <label for="jobFieldId">Job Field ID:</label>
-                <select id="jobFieldId" [(ngModel)]="selectedFieldId" required>
-                    <option *ngFor="let jobField of jobFields" [value]="jobField.jobFieldId">{{ jobField.jobFieldName }}
+                <label for="jobFieldId">Select Field:</label>
+                <select id="jobFieldId" [(ngModel)]="newJob.jobFieldId" name="jobFieldId" required>
+                    <option *ngFor="let jobField of jobFields" [value]="jobField.jobFieldId">{{jobField.jobFieldName}}
                     </option>
                 </select>
-                <div
-                    *ngIf="addJobForm.controls['jobFieldId'].invalid && (addJobForm.controls['jobFieldId'].dirty || addJobForm.controls['jobFieldId'].touched)">
-                    <span style="color: red;">Select job Field</span>
-                </div>
             </div>
             <div>
                 <label for="houresScope">Hours Scope:</label>
                 <input type="number" id="houresScope" name="houresScope" [(ngModel)]="newJob.houresScope" required>
                 <div
-                    *ngIf="addJobForm.controls['houresScope'].invalid && (addJobForm.controls['houresScope'].dirty || addJobForm.controls['houresScope'].touched)">
-                    <span style="color: red;">Hours scope must be greater than 0</span>
+                    *ngIf="addJobForm.controls['houresScope']?.invalid && (addJobForm.controls['houresScope'].dirty || addJobForm.controls['houresScope'].touched)">
+                    <span style="color: red;">Please enter hours scope</span>
                 </div>
-                <div *ngIf="newJob.houresScope <= 0">
+                <div
+                    *ngIf="newJob.houresScope <= 0 && (addJobForm.controls['houresScope']?.dirty || addJobForm.controls['houresScope']?.touched)">
                     <span style="color: red;">Hours scope must be greater than 0</span>
                 </div>
             </div>
@@ -36,32 +33,24 @@
                 <label for="area">Area:</label>
                 <input type="text" id="area" name="area" [(ngModel)]="newJob.area" required>
                 <div
-                    *ngIf="addJobForm.controls['area'].invalid && (addJobForm.controls['area'].dirty || addJobForm.controls['area'].touched)">
-                    <span style="color: red;">Enter a Area</span>
+                    *ngIf="addJobForm.controls['area']?.invalid && (addJobForm.controls['area'].dirty || addJobForm.controls['area'].touched)">
+                    <span style="color: red;">Enter an Area</span>
                 </div>
             </div>
             <div>
                 <label for="requirements">Requirements:</label>
-                <input type="text" id="requirements" name="requirements" [(ngModel)]="newJob.requirements" required
-                    maxlength="50">
-                <!-- New job text box -->
-                <div *ngFor="let textBox of textBoxes">
-                    <input type="text" [(ngModel)]="textBox.value">
-                    <button type="button" (click)="removeTextBox(textBox)">X</button>
+                <div *ngFor="let requirement of newJob.requirements; let i = index; trackBy: trackByFn">
+                    <input type="text" name="requirement{{i}}" [(ngModel)]="newJob.requirements[i]" required>
+                    <button type="button" (click)="removeRequirement(i)">x</button>
                 </div>
-                <button type="button" (click)="addTextBox()">+</button>
-                <div
-                    *ngIf="addJobForm.controls['requirements'].invalid && (addJobForm.controls['requirements'].dirty || addJobForm.controls['requirements'].touched)">
-                    <span style="color: red;">Enter a requirements</span>
-                </div>
+                <button type="button" (click)="addRequirement()">+</button>
             </div>
             <div>
-                <label for="homeWorking">Can Work from Home:</label>
-                <input type="checkbox" id="homeWorking" name="homeWorking" [(ngModel)]="newJob.homeWorking" required>
-                <div
-                    *ngIf="addJobForm.controls['homeWorking'].invalid && (addJobForm.controls['homeWorking'].dirty || addJobForm.controls['homeWorking'].touched)">
-                    <span style="color: red;">Please indicate if the job allows working from home</span>
-                </div>
+                <label for="homeWorking">Working from home:</label>
+                <select id="homeWorking" name="homeWorking" required>
+                    <option (click)="changehomeWorking()">yes</option>
+                    <option (click)="changehomeWorking()">no</option>
+                </select>
             </div>
             <button [disabled]="!addJobForm.valid" type="submit">Submit</button>
         </form>
