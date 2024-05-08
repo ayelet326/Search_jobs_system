@@ -1,3 +1,17 @@
+<div class="search-container">
+    <div>
+        <label for="fieldId">Select Field:</label>
+        <select id="fieldId" [(ngModel)]="selectedFieldId">
+            <option *ngFor="let jobField of jobFields" [value]="jobField.jobFieldId">{{ jobField.jobFieldName }}</option>
+        </select>
+    </div>
+    <div>
+        <label for="area">Enter Area:</label>
+        <input type="text" id="area" [(ngModel)]="selectedArea">
+    </div>
+    <button (click)="onSearch()">Search</button>
+</div>
+
 <div class="job-list">
-    <app-show-job *ngFor="let job of jobs" [job]="job"></app-show-job>
+    <app-show-job *ngFor="let job of filteredJobsList" [job]="job"></app-show-job>
 </div>

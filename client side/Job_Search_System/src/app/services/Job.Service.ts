@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Job } from '../models/job';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 
 @Injectable({
@@ -16,12 +16,11 @@ export class JobService {
 
     public getJobList(): Observable<Job[]> {
         if (this.jobList.length === 0) {
-            return this.getJobsFromServer();
+            return this.getJobsFromServer().pipe(
+                tap(jobs => this.jobList = jobs)
+            );
         } else {
-            return new Observable(observer => {
-                observer.next(this.jobList);
-                observer.complete();
-            });
+            return of(this.jobList);
         }
     }
 
