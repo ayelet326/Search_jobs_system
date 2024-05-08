@@ -20,11 +20,24 @@ export class UserService {
                     if (error.status === 404) {
                         return of(null);
                     }
-                    else{
+                    else {
                         return throwError(error);
                     }
                 })
             );
+    }
+
+    getUserById(id: number) : Observable<User | null>{
+        return this.http.get<User>(`https://localhost:7107/User/${encodeURIComponent(id)}`).pipe(
+            catchError(error => {
+                if (error.status === 404) {
+                    return of(null);
+                }
+                else {
+                    return throwError(error);
+                }
+            })
+        );
     }
 
     addUser(user: User): Observable<any> {

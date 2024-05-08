@@ -25,14 +25,23 @@ export class HeaderComponent  implements OnInit {
     this.CVsNumber = this.currentUser.cVsSentCount;
     this.userService.userUpdated.subscribe((updatedUser: User) => {
       this.CVsNumber = updatedUser.cVsSentCount;
-      this.currentUser = JSON.parse(localStorage.getItem("Current-user") || '{}');
+      this.currentUser = JSON.parse(localStorage.getItem("Current-user") || '{}');      
+      this.getJobFieldDetails();
     });
-    this.getJobFieldDetails();
+    // this.getJobFieldDetails();
   }
 
+ 
+
   getJobFieldDetails() {
+    console.log(this.currentUser.jobFieldId);
+
     this.jobFieldService.getJobFieldById(this.currentUser.jobFieldId).subscribe((jobField:JobField|undefined)=>{
+      console.log(jobField);
+
       this.jobFieldName = jobField?.jobFieldName;
+      console.log(this.jobFieldName);
+      
       this.jobField=jobField;
     })
   }
@@ -46,7 +55,7 @@ export class HeaderComponent  implements OnInit {
     this.router.navigate(['/login']);
   }
   onEditProfileClick() {
-    this.router.navigate(['/edit_user']);
+    this.router.navigate(['/home', 'edit_user']);
   }
 
   setShowDisconnection(){

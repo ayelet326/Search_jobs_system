@@ -1,0 +1,72 @@
+body {
+    padding-top: 150px;
+    text-align: center;
+    margin-bottom: 20%;
+}
+
+form {
+    text-align: start;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #f96f6c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:disabled {
+        background-color: #b3b3b3;
+        cursor: not-allowed;
+    }
+}
+
+button:disabled:hover {
+    background-color: #767676;
+}
+
+button:hover {
+    background-color: #f96f6c;
+}
+
+div.error {
+    color: red;
+    font-size: 14px;
+}
+
+.back-button {
+    position: fixed;
+    top: 60px;
+    right: 656px;
+    padding: 15px;
+    border: none;
+    background-color: #ccc;
+    color: #767676;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: #767676;
+        color: #fff;
+    }
+}
