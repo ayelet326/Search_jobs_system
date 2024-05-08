@@ -1,1 +1,70 @@
-<p>add-job works!</p>
+<body>
+    <div>
+        <h2>Add New Job</h2>
+        <form (ngSubmit)="onSubmit()" #addJobForm="ngForm">
+            <div>
+                <label for="jobName">Job Name:</label>
+                <input type="text" id="jobName" name="jobName" [(ngModel)]="newJob.jobName" required>
+                <div
+                    *ngIf="addJobForm.controls['jobName'].invalid && (addJobForm.controls['jobName'].dirty || addJobForm.controls['jobName'].touched)">
+                    <span style="color: red;">Enter a job Name</span>
+                </div>
+            </div>
+            <div>
+                <label for="jobFieldId">Job Field ID:</label>
+                <select id="jobFieldId" [(ngModel)]="selectedFieldId" required>
+                    <option *ngFor="let jobField of jobFields" [value]="jobField.jobFieldId">{{ jobField.jobFieldName }}
+                    </option>
+                </select>
+                <div
+                    *ngIf="addJobForm.controls['jobFieldId'].invalid && (addJobForm.controls['jobFieldId'].dirty || addJobForm.controls['jobFieldId'].touched)">
+                    <span style="color: red;">Select job Field</span>
+                </div>
+            </div>
+            <div>
+                <label for="houresScope">Hours Scope:</label>
+                <input type="number" id="houresScope" name="houresScope" [(ngModel)]="newJob.houresScope" required>
+                <div
+                    *ngIf="addJobForm.controls['houresScope'].invalid && (addJobForm.controls['houresScope'].dirty || addJobForm.controls['houresScope'].touched)">
+                    <span style="color: red;">Hours scope must be greater than 0</span>
+                </div>
+                <div *ngIf="newJob.houresScope <= 0">
+                    <span style="color: red;">Hours scope must be greater than 0</span>
+                </div>
+            </div>
+            <div>
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" [(ngModel)]="newJob.area" required>
+                <div
+                    *ngIf="addJobForm.controls['area'].invalid && (addJobForm.controls['area'].dirty || addJobForm.controls['area'].touched)">
+                    <span style="color: red;">Enter a Area</span>
+                </div>
+            </div>
+            <div>
+                <label for="requirements">Requirements:</label>
+                <input type="text" id="requirements" name="requirements" [(ngModel)]="newJob.requirements" required
+                    maxlength="50">
+                <!-- New job text box -->
+                <div *ngFor="let textBox of textBoxes">
+                    <input type="text" [(ngModel)]="textBox.value">
+                    <button type="button" (click)="removeTextBox(textBox)">X</button>
+                </div>
+                <button type="button" (click)="addTextBox()">+</button>
+                <div
+                    *ngIf="addJobForm.controls['requirements'].invalid && (addJobForm.controls['requirements'].dirty || addJobForm.controls['requirements'].touched)">
+                    <span style="color: red;">Enter a requirements</span>
+                </div>
+            </div>
+            <div>
+                <label for="homeWorking">Can Work from Home:</label>
+                <input type="checkbox" id="homeWorking" name="homeWorking" [(ngModel)]="newJob.homeWorking" required>
+                <div
+                    *ngIf="addJobForm.controls['homeWorking'].invalid && (addJobForm.controls['homeWorking'].dirty || addJobForm.controls['homeWorking'].touched)">
+                    <span style="color: red;">Please indicate if the job allows working from home</span>
+                </div>
+            </div>
+            <button [disabled]="!addJobForm.valid" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
