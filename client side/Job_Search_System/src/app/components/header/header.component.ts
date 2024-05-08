@@ -16,6 +16,7 @@ export class HeaderComponent  implements OnInit {
   jobFieldName: string | undefined;
   jobField?: JobField;
   @Output() jobFieldLinkClicked: EventEmitter<number|undefined > = new EventEmitter<number|undefined>();
+  showProfileOptions :boolean=false
 
   constructor(private jobFieldService: JobFieldService,private userService: UserService, private router: Router) { }
 
@@ -37,8 +38,19 @@ export class HeaderComponent  implements OnInit {
   }
 
   onJobFieldLinkClick(): void {
-    console.log(this.jobField?.jobFieldId);
-    this.jobFieldLinkClicked.emit(this.jobField?.jobFieldId);
+    this.router.navigate(['/home'], { queryParams: { fieldName: this.jobFieldName } });
+  }
+
+  onLogoutClick() {
+    localStorage.removeItem('Current-user');
+    this.router.navigate(['/login']);
+  }
+  onEditProfileClick() {
+    this.router.navigate(['/edit_user']);
+  }
+
+  setShowDisconnection(){
+    this.showProfileOptions=!this.showProfileOptions;
   }
 }
 

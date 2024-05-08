@@ -25,8 +25,40 @@
 #CVs-count {
     font-weight: bold;
 }
-#job-field,#CvsSent{
+#job-field,#CvsSent ,#addJob{
     color: #f96f6c;
     text-decoration: none;
 
+}
+#Disconnection{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    width: 100px;
+    color: #b55554;
+    border: #189516 4px;
+    position: absolute;
+    z-index: 99;
+}
+.button-container {
+    display: flex; /* עריכה של ה-Display לפלקס */
+    flex-direction: column; /* פריסת עמודות שנפליט לפלכס שזה יהיה מסודר ככה שהכפתורים יהיו מתחת לשני */
+    justify-content: center; /* עיגול התוכן באופן אופקי */
+    align-items: center; /* עיגול התוכן באופן אנכי */
+    gap: 5px; /* מרווח בין הכפתורים */
+}
+
+.button-container button {
+    width: 100px; /* רוחב של הכפתור */
+    height: 40px; /* גובה של הכפתור */
+    border: none; /* אין מסגרת */
+    background-color: #f0f0f0; /* צבע רקע */
+    border-radius: 5px; /* עיגול פינות */
+    cursor: pointer; /* סמן עכבר משתנה למצב רוחב */
+}
+
+.button-container button:hover {
+    background-color: #dcdcdc; /* צבע רקע בעת הכנסת עכבר מעליו */
 }

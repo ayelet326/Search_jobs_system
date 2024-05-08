@@ -3,7 +3,11 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item ">
-                <i class="fas fa-user"></i>  {{ currentUser.userName || 'no connect' }}
+                <span id="disconnectionButtom" (click)="setShowDisconnection()"><i class="fas fa-user"></i></span>  {{ currentUser.userName || 'no connect' }}
+                <div id="Disconnection" *ngIf="showProfileOptions"  class="button-container">
+                    <button (click)="onEditProfileClick()">Edit Profile</button>
+                    <button (click)="onLogoutClick()">LogOut</button>
+                 </div>
             </li>
 
             <li class="nav-item">
@@ -11,11 +15,15 @@
             </li>
 
             <li class="nav-item">
-                You sent <span id="CVs-count">{{ currentUser.cVsSentCount}}</span> CVs
+                You sent <span id="CVs-count">{{ currentUser.cVsSentCount || "0"}}</span> CVs
             </li>
 
             <li class="nav-item">
-                <a id="CvsSent" [routerLink]="'/CvsSent'"> Your Submitted CVs</a>
+                <a id="CvsSent" [routerLink]="'/home/applied_jobs_list'"> Your Submitted CVs</a>
+            </li>
+
+            <li class="nav-item">
+                <a id="addJob" [routerLink]="'/home/addJob'"> Add job</a>
             </li>
            
         </ul>
@@ -28,3 +36,4 @@
     </button>
    
 </nav>
+
