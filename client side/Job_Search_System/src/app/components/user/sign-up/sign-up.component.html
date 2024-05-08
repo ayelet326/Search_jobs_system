@@ -1,1 +1,43 @@
-<p>sign-up works!</p>
+<body>
+    <button class="back-button" (click)="goBack()">➡️</button>
+    <h2>Sign-up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+        <div>
+            <label for="username">User name:</label>
+            <input id="username" type="text" formControlName="username" required pattern="^[a-zA-Z0-9\s+\-\/']+$">
+            <div
+                *ngIf="signupForm.controls['username']?.invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">
+                <span style="color: red;">Please enter valid password.</span>
+            </div>
+        </div>
+
+        <div>
+            <label for="fieldId">Select Field:</label>
+            <select id="fieldId" formControlName="jobField" required>
+                <option *ngFor="let jobField of jobFields" [value]="jobField.jobFieldId">{{ jobField.jobFieldName }}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" type="password" formControlName="password" required pattern="^\S{8,}$">
+            <div
+                *ngIf="signupForm.controls['password']?.invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+                <span style="color: red;">Password must be at least 8 characters long and not contain spaces.</span>
+            </div>
+
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm password:</label>
+            <input id="confirmPassword" type="password" formControlName="confirmPassword" required>
+        </div>
+
+        <div style="color: red;" *ngIf="signupForm.errors?.['notSame']">
+            The passwords do not match
+        </div>
+
+        <button [disabled]="signupForm.invalid" type="submit">Confirm</button>
+    </form>
+</body>

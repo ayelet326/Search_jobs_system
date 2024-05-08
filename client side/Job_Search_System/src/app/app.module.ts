@@ -12,7 +12,7 @@ import { DeleteJobComponent } from './components/job/delete-job/delete-job.compo
 import { ShowJobComponent } from './components/job/show-job/show-job.component';
 import { JobListComponent } from './components/job/job-list/job-list.component';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
@@ -41,6 +41,7 @@ import { JobCardDirective } from './directives/job-card.directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthService,

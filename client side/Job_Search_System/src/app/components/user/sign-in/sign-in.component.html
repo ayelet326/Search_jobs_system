@@ -1,21 +1,27 @@
-<div>
-  <h2>login</h2>
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value.username, loginForm.value.password)">
-    <div>
-      <label for="username">User name:</label>
-      <input type="text" id="username" name="username" ngModel required>
-      <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
-        <span style="color: red;">Enter a username</span>
+<body style="margin-top: 7%;">
+  <div >
+    <h2 style="margin-left: 140px;">login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value.username, loginForm.value.password)" style="background-color: white;">
+      <div>
+        <label for="username">User name:</label>
+        <input type="text" id="username" name="username" ngModel required>
+        <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+          <span style="color: red;">Enter a username</span>
+        </div>
       </div>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" ngModel required pattern="^\S{8,}$">
-      <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-        <span style="color: red;">Password must be at least 8 characters long and not contain spaces.</span>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel required pattern="^\S{8,}$">
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+          <span style="color: red;">Password must be at least 8 characters long and not contain spaces.</span>
+        </div>
       </div>
-    </div>
-    <button [disabled]="!loginForm.valid" type="submit" name="submit">Submit</button>
-  </form>
-</div>
+      <button [disabled]="!loginForm.valid" type="submit" name="submit">Submit</button>
+      <button id="signup" (click)="signUp()"> Sign-up</button>
+
+    </form>
+
+  </div>
+
+</body>
 

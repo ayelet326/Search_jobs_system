@@ -22,5 +22,9 @@ export class SignInComponent {
     }
   }
 
+  
+  signUp(){
+    this.router.navigate(['/signup']);
+  }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { Observable, Subject, catchError, of, tap, throwError } from 'rxjs';
+import { Observable, Subject, catchError, map, of, tap, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -27,8 +27,14 @@ export class UserService {
             );
     }
 
-    addUser(user: User) {
-        this.http.post('https://localhost:7107/User', { body: user }).subscribe(res => { });
+    addUser(user: User): Observable<any> {
+        if (user !== null) {
+            return this.http.post('https://localhost:7107/User', user).pipe(
+                map(() => true),
+                catchError(error => of(error))
+            );
+        }
+        return of(false);
     }
 
     updateUser(user: User) {
