@@ -28,20 +28,14 @@ export class HeaderComponent  implements OnInit {
       this.currentUser = JSON.parse(localStorage.getItem("Current-user") || '{}');      
       this.getJobFieldDetails();
     });
-    // this.getJobFieldDetails();
+    this.getJobFieldDetails();
   }
 
  
 
   getJobFieldDetails() {
-    console.log(this.currentUser.jobFieldId);
-
     this.jobFieldService.getJobFieldById(this.currentUser.jobFieldId).subscribe((jobField:JobField|undefined)=>{
-      console.log(jobField);
-
-      this.jobFieldName = jobField?.jobFieldName;
-      console.log(this.jobFieldName);
-      
+      this.jobFieldName = jobField?.jobFieldName;      
       this.jobField=jobField;
     })
   }

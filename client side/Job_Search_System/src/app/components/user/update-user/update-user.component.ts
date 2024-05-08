@@ -52,7 +52,7 @@ export class UpdateUserComponent  implements OnInit {
       try {
         this.currentUser.userName=this.profileForm.value.username;
         this.currentUser.password=this.profileForm.value.password;
-        this.currentUser.jobFieldId=this.profileForm.value.jobField;
+        this.currentUser.jobFieldId = parseInt(this.profileForm.value.jobField);
         this.userService.updateUser(this.currentUser);
         if (this.currentUser) {
           this.router.navigate(['/home']);
