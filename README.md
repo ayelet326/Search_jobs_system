@@ -118,4 +118,4 @@ Open the application in a web browser.
 
 ## Contact Us
 
-For any questions or further assistance, please contact us via email: ayelet203320@gmail.com or through our social media profiles.
+For any questions or further assistance, please contact us via email: Ayelet203320@gmail.com or through our social media profiles.
