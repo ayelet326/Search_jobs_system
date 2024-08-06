@@ -81,7 +81,7 @@ Visual Studio Code for installation and runing.
 
 Clone the repository:
 ```
-git clone https://github.com/noa1020/Search_jobs_system.git
+git clone https://github.com/ayelet326/Search_jobs_system.git
 ```
 Open the solution file in Visual Studio Code
 
